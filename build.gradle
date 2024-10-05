@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.menagement'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot Web Starter: 웹 애플리케이션을 위한 기본 의존성
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Thymeleaf: HTML 렌더링을 위한 템플릿 엔진
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// Spring Boot Data JPA: 데이터베이스 처리를 위한 JPA 의존성
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// H2 Database: 로컬 테스트용 인메모리 데이터베이스
+	runtimeOnly 'com.h2database:h2'
+
+	// Lombok: 보일러플레이트 코드를 줄여주는 라이브러리
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Validation: 유효성 검사를 위한 의존성
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Spring Boot Test: 테스트를 위한 의존성
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
